@@ -10,7 +10,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(), // <-- virgule manquante ici
+    provideHttpClient(), 
     provideAnimations(),
     provideToastr({
       timeOut: 3000,

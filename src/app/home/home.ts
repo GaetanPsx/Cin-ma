@@ -14,13 +14,13 @@ import { MovieCard } from './movie-card/movie-card';
 export class Home {
   private readonly moviesApi = inject(MoviesApi);
 
-  // liste brute
+
   movies$ = this.moviesApi.getMovies();
 
-  // texte de recherche
+
   search = signal('');
 
-  // filtre en mémoire (sur le résultat async)
+
   filteredMovies = (movies: Movie[] | null): Movie[] => {
     const q = this.search().trim().toLowerCase();
     if (!movies) return [];

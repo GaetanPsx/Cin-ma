@@ -5,7 +5,7 @@ import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, TitleCasePipe], // 👈 AJOUTE ICI
+  imports: [RouterLink, TitleCasePipe], 
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })

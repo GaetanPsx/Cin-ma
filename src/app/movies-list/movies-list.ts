@@ -24,7 +24,7 @@ export class MoviesList {
       next: () => {
         this.toastr.success('Film supprimé', 'Succès');
 
-        // Recharge la liste
+        
         this.movies$ = this.moviesApi.getMovies();
       },
       error: () => {
