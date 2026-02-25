@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { MoviesApi } from '../services/movies-api';
 import { Movie } from '../models/movie';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-movie',
@@ -15,18 +16,24 @@ import { Movie } from '../models/movie';
 export class AddMovie {
   private readonly moviesApi = inject(MoviesApi);
   private readonly router = inject(Router);
+  private readonly toastr = inject(ToastrService); 
 
   movie: Movie = {
     title: '',
     director: '',
-    releaseDate: new Date().toISOString().slice(0, 10), // YYYY-MM-DD pour input type="date"
+    releaseDate: new Date().toISOString().slice(0, 10),
     synopsis: '',
-    // id/rate/image sont optionnels dans ton interface -> pas besoin de les mettre
   };
 
   addMovie(): void {
-    this.moviesApi.addMovie(this.movie).subscribe(() => {
-      this.router.navigate(['/movies']);
+    this.moviesApi.addMovie(this.movie).subscribe({
+      next: () => {
+        this.toastr.success('Film ajouté ', 'Succès'); 
+        this.router.navigate(['/movies']);
+      },
+      error: () => {
+        this.toastr.error('Erreur lors de l’ajout du film', 'Erreur'); 
+            },
     });
   }
 }

@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 import { MoviesApi } from '../services/movies-api';
 import { Movie } from '../models/movie';
 
@@ -17,6 +17,8 @@ export class EditMovie implements OnInit {
   private readonly moviesApi = inject(MoviesApi);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly toastr = inject(ToastrService);
+
 
   id!: number;
 
@@ -34,7 +36,6 @@ export class EditMovie implements OnInit {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.moviesApi.getMovieById(this.id).subscribe((m) => {
-      // IMPORTANT pour <input type="date">
       this.movie = {
         ...m,
         releaseDate: (m.releaseDate ?? '').slice(0, 10),
@@ -42,9 +43,21 @@ export class EditMovie implements OnInit {
     });
   }
 
-  updateMovie(): void {
-    this.moviesApi.updateMovie(this.id, this.movie).subscribe(() => {
+updateMovie(): void {
+  this.moviesApi.updateMovie(this.id, this.movie).subscribe({
+    next: () => {
+      this.toastr.success(
+        'Le film a été modifié avec succès ',
+        'Succès'
+      );
       this.router.navigate(['/movies']);
-    });
-  }
+    },
+    error: () => {
+      this.toastr.error(
+        'Erreur lors de la modification du film',
+        'Erreur'
+      );
+    }
+  });
+}
 }
