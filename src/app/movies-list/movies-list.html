@@ -1,0 +1,60 @@
+<div class="container mt-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Gestion de films</h1>
+
+    <button class="btn btn-warning" routerLink="/add-movie">
+      Nouveau film
+    </button>
+  </div>
+
+  <table class="table table-striped table-bordered align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Date</th>
+        <th>Réalisateur</th>
+        <th>Note</th>
+        <th>Synopsis</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (movie of movies$ | async; track movie.id) {
+        <tr>
+          <td>{{ movie.id }}</td>
+          <td>{{ movie.title }}</td>
+          <td>{{ movie.releaseDate | date:'dd/MM/yy' }}</td>
+          <td>{{ movie.director }}</td>
+          <td>{{ movie.rate }}</td>
+          <td>{{ movie.synopsis }}</td>
+          <td class="d-flex gap-2">
+
+            <!-- Bouton Modifier -->
+            <a 
+              class="btn btn-primary btn-sm"
+              [routerLink]="['/edit-movie', movie.id]"
+              title="Modifier"
+            >
+              <i class="bi bi-pencil"></i>
+            </a>
+
+            <!-- Bouton Supprimer -->
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="deleteMovie(movie.id!)"
+              title="Supprimer"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>
