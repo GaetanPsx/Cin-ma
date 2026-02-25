@@ -7,11 +7,11 @@ import { Footer } from './footer/footer';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Navbar, Footer], // 👈 AJOUTE Home ICI
+  imports: [RouterOutlet, Navbar, Footer], 
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('ton-super-nom-de-projet');
+  protected readonly title = signal('Cinema');
 }
 
