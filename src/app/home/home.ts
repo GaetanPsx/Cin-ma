@@ -1,8 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, inject, signal, computed } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { MoviesApi } from '../services/movies-api';
 import { Movie } from '../models/movie';
-import { AsyncPipe } from '@angular/common';
 import { MovieCard } from './movie-card/movie-card';
 
 @Component({
@@ -15,5 +14,21 @@ import { MovieCard } from './movie-card/movie-card';
 export class Home {
   private readonly moviesApi = inject(MoviesApi);
 
-  movies$: Observable<Movie[]> = this.moviesApi.getMovies();
+  // liste brute
+  movies$ = this.moviesApi.getMovies();
+
+  // texte de recherche
+  search = signal('');
+
+  // filtre en mémoire (sur le résultat async)
+  filteredMovies = (movies: Movie[] | null): Movie[] => {
+    const q = this.search().trim().toLowerCase();
+    if (!movies) return [];
+    if (!q) return movies;
+
+    return movies.filter((m) =>
+      (m.title ?? '').toLowerCase().includes(q) ||
+      (m.director ?? '').toLowerCase().includes(q)
+    );
+  };
 }
