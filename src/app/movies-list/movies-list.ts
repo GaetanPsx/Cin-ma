@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { MoviesApi } from '../services/movies-api';
 import { Movie } from '../models/movie';
@@ -14,13 +15,24 @@ import { Movie } from '../models/movie';
 })
 export class MoviesList {
   private readonly moviesApi = inject(MoviesApi);
+  private readonly toastr = inject(ToastrService);
 
   movies$ = this.moviesApi.getMovies();
 
   deleteMovie(id: number): void {
-    this.moviesApi.deleteMovie(id).subscribe(() => {
-      // recharge la liste après suppression
-      this.movies$ = this.moviesApi.getMovies();
+    this.moviesApi.deleteMovie(id).subscribe({
+      next: () => {
+        this.toastr.success('Film supprimé', 'Succès');
+
+        // Recharge la liste
+        this.movies$ = this.moviesApi.getMovies();
+      },
+      error: () => {
+        this.toastr.error(
+          'Erreur lors de la suppression du film',
+          'Erreur'
+        );
+      },
     });
   }
 }
