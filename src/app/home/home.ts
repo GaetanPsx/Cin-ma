@@ -1,25 +1,26 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { MoviesApi } from '../services/movies-api';
 import { Movie } from '../models/movie';
 import { MovieCard } from './movie-card/movie-card';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [AsyncPipe, MovieCard],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
   private readonly moviesApi = inject(MoviesApi);
 
-
   movies$ = this.moviesApi.getMovies();
 
-
   search = signal('');
-
 
   filteredMovies = (movies: Movie[] | null): Movie[] => {
     const q = this.search().trim().toLowerCase();

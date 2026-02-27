@@ -1,7 +1,6 @@
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="m-0">Accueil</h1>
-
     <input
       class="form-control w-50"
       type="text"
@@ -10,8 +9,24 @@
       (input)="search.set(($any($event.target)).value)"
     />
   </div>
-</div>
 
+  <!-- CARROUSEL -->
+<swiper-container slides-per-view="3" space-between="20" navigation="true" class="mb-5">
+  @for (movie of movies$ | async; track movie.id) {
+    <swiper-slide>
+      <div class="movie-card">
+        @if(movie.image) {
+          <img [src]="'http://localhost:8080/movies/' + movie.id + '/image'" [alt]="movie.title" />
+        }
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+          <span class="rating">⭐ {{ movie.rate }}/10</span>
+        </div>
+      </div>
+    </swiper-slide>
+  }
+</swiper-container>
+</div>
 
 <div class="movies-container">
   @for (movie of filteredMovies(movies$ | async); track movie.id) {
