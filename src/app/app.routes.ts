@@ -6,6 +6,8 @@ import { EditMovie } from './edit-movie/edit-movie';
 import { Contact } from './contact/contact';
 import { Faq } from './faq/faq';
 import { APropos } from './a-propos/a-propos';
+import { Confidentialite } from './confidentialite/confidentialite';
+import { MentionsLegales } from './mentions-legales/mentions-legales';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -14,5 +16,7 @@ export const routes: Routes = [
   { path: 'edit-movie/:id', component: EditMovie },
   { path: 'contact', component: Contact },
   { path: 'faq', component: Faq },
-  { path: 'a-propos', component: APropos }
+  { path: 'a-propos', component: APropos },
+  { path: 'mentions-legales', component: MentionsLegales },
+  { path: 'confidentialite', component: Confidentialite }
 ];
