@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+/* Affiche entière visible (pas coupée) */
+.card-img-top {
+  width: 100%;
+  height: 320px; /* tu peux ajuster (280 / 320 / 360) */
+  object-fit: contain; /* ✅ ne coupe plus */
+  background: #fff; /* évite noir/transparent derrière certaines images */
+}

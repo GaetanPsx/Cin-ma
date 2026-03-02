@@ -1,6 +1,16 @@
 <nav class="navbar navbar-light navbar-expand bg-light ps-5">
-  <a class="navbar-brand">{{ title | titlecase }}</a>
+  <a class="navbar-brand" routerLink="/">{{ title }}</a>
 
-  <a class="nav-item nav-link me-3" routerLink="/">Accueil</a>
-  <a class="nav-item nav-link" routerLink="/movies">Gestion de films</a>
+  <a class="nav-item nav-link me-3"
+     routerLink="/"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{ exact: true }">
+    Accueil
+  </a>
+
+  <a class="nav-item nav-link"
+     routerLink="/movies"
+     routerLinkActive="active">
+    Gestion de films
+  </a>
 </nav>

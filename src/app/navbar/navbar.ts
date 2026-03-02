@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, TitleCasePipe], 
+  imports: [RouterLink, RouterLinkActive, TitleCasePipe],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
 export class Navbar {
-  @Input({ required: true }) title!: string;
+  @Input() title = '';
 }
