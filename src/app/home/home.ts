@@ -1,34 +1,24 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
+
 import { MoviesApi } from '../services/movies-api';
-import { Movie } from '../models/movie';
 import { MovieCard } from './movie-card/movie-card';
+import { Movie } from '../models/movie';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AsyncPipe, MovieCard],
+  imports: [RouterLink, AsyncPipe, MovieCard],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
   private readonly moviesApi = inject(MoviesApi);
 
-  // liste brute
   movies$ = this.moviesApi.getMovies();
 
-  // texte de recherche
-  search = signal('');
-
-  // filtre en mémoire (sur le résultat async)
-  filteredMovies = (movies: Movie[] | null): Movie[] => {
-    const q = this.search().trim().toLowerCase();
-    if (!movies) return [];
-    if (!q) return movies;
-
-    return movies.filter((m) =>
-      (m.title ?? '').toLowerCase().includes(q) ||
-      (m.director ?? '').toLowerCase().includes(q)
-    );
-  };
+  scrollToContent() {
+    document.getElementById('home-content')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }
