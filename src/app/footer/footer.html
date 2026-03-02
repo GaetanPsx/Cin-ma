@@ -3,7 +3,7 @@
     <div class="row g-4">
 
       
-      <div class="col-12 col-md-4">
+      <div class="col-12S col-md-4">
         <h6 class="footer-title">Découvrir</h6>
         <ul class="footer-links">
           <li><a routerLink="/">Accueil</a></li>
@@ -16,9 +16,9 @@
       <div class="col-12 col-md-4">
         <h6 class="footer-title">Aide</h6>
         <ul class="footer-links">
-          <li><a href="#" (click)="$event.preventDefault()">FAQ</a></li>
-          <li><a href="mailto:contact@tonprojet.fr">Contact</a></li>
-          <li><a href="#" (click)="$event.preventDefault()">À propos</a></li>
+          <li><a routerLink="/faq">FAQ</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/a-propos">À propos</a></li>
         </ul>
       </div>
 
@@ -37,7 +37,7 @@
   
   <div class="footer-bottom">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center py-3 gap-2">
-      <span>© {{ year }} - Ton super projet 🎬</span>
+      <span>© {{ year }} - Ton super projet </span>
 
       <a class="footer-github" href="https://github.com/" target="_blank" rel="noreferrer">
         <i class="bi bi-github"></i>
