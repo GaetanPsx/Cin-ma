@@ -18,7 +18,7 @@
 <section id="home-content" class="home-content">
   <div class="container py-4">
     <h2 class="mb-3">À l'affiche</h2>
-
+    <app-ads-banner [ads]="ads"></app-ads-banner>
     <div class="row g-3">
       @for (movie of movies$ | async; track movie.id) {
       <div class="col-6 col-md-4 col-lg-3">
@@ -29,3 +29,7 @@
 
   </div>
 </section>
+<app-ad-popup [open]="popupOpen"
+              [ad]="currentPopup"
+              (closed)="closePopup()">
+</app-ad-popup>

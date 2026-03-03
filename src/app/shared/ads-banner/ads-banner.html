@@ -1,0 +1,23 @@
+<section class="ads" *ngIf="ads?.length">
+  <div class="ads__header">
+    <h3>Publicités</h3>
+    <span class="ads__disclaimer">Contenu sponsorisé</span>
+  </div>
+
+  <div class="ads__grid">
+    <article class="ad" *ngFor="let ad of ads">
+      <div class="ad__badge" *ngIf="ad.badge">{{ ad.badge }}</div>
+
+      <img class="ad__img" [src]="ad.imageSrc" [alt]="ad.alt" loading="lazy" />
+
+      <div class="ad__body">
+        <div class="ad__title">{{ ad.title }}</div>
+        <div class="ad__subtitle" *ngIf="ad.subtitle">{{ ad.subtitle }}</div>
+
+        <a class="ad__cta" [href]="ad.ctaUrl" target="_blank" rel="noopener noreferrer">
+          {{ ad.ctaText }}
+        </a>
+      </div>
+    </article>
+  </div>
+</section>

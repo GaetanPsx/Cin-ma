@@ -1,0 +1,9 @@
+<div class="overlay" *ngIf="open" (click)="close()">
+  <div class="popup" (click)="$event.stopPropagation()">
+    <button class="close" type="button" (click)="close()" aria-label="Fermer">✖</button>
+
+    <a class="imgLink" [href]="ad.url" target="_blank" rel="noopener noreferrer">
+      <img [src]="ad.imageSrc" [alt]="ad.alt" />
+    </a>
+  </div>
+</div>
