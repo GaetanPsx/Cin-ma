@@ -21,11 +21,22 @@ export class AddMovie {
   movie: Movie = {
     title: '',
     director: '',
-    releaseDate: new Date().toISOString().slice(0, 10),
+    releaseDate: new Date().toISOString().substring(0, 10),
     synopsis: '',
+    rate: 0
   };
 
+  capitalizeFirstLetter(value: string): string {
+    if (!value) return value;
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
   addMovie(): void {
+    this.movie.releaseDate = new Date().toISOString().substring(0, 10);
+    this.movie.title = this.capitalizeFirstLetter(this.movie.title);
+    this.movie.director = this.capitalizeFirstLetter(this.movie.director);
+    this.movie.synopsis = this.capitalizeFirstLetter(this.movie.synopsis);
+
     this.moviesApi.addMovie(this.movie).subscribe({
       next: () => {
         this.toastr.success('Film ajouté ', 'Succès'); 
