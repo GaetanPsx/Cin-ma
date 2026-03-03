@@ -1,8 +1,16 @@
 <nav class="navbar navbar-light navbar-expand bg-light ps-5 pe-4">
 
-  <!-- Partie gauche -->
-  <a class="navbar-brand fw-bold" routerLink="/">
-    {{ title }}
+  <!-- Logo + Titre -->
+  <a class="navbar-brand fw-bold d-flex align-items-center gap-2" routerLink="/">
+    
+    <img 
+      src="/assets/home/logo.png"
+      alt="Logo Cinéma Rillette"
+      class="navbar-logo"
+    />
+
+    <span>{{ title }}</span>
+
   </a>
 
   <a class="nav-item nav-link me-3"
@@ -17,14 +25,5 @@
      routerLinkActive="active">
     Gestion de films
   </a>
-
-  <!-- 👉 Partie droite -->
-  <div class="ms-auto">
-    <img 
-      src="assets/home/logo.png"
-      alt="Logo Cinéma Rillette"
-      style="height: 45px; object-fit: contain;"
-    />
-  </div>
 
 </nav>

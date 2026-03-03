@@ -14,7 +14,7 @@
 .hero__overlay {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.35); /* overlay simple */
+  background: rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
 }
@@ -70,12 +70,3 @@
   background: #fff;
   color: #111;
 }
-
-.movies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  align-items: start;
-}
-
-
