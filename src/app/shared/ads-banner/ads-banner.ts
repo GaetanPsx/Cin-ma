@@ -6,9 +6,9 @@ export type Ad = {
   subtitle?: string;
   ctaText: string;
   ctaUrl: string;
-  imageSrc: string; // ex: 'assets/ads/revolut.jpg'
+  imageSrc: string; 
   alt: string;
-  badge?: string;   // ex: 'Sponsorisé'
+  badge?: string;   
 };
 
 @Component({

@@ -23,7 +23,6 @@ export class Home {
 
   movies$ = this.moviesApi.getMovies();
 
-  // ✅ tes pubs (bannières)
   ads: Ad[] = [
     {
       title: 'Revolut',
@@ -54,7 +53,6 @@ export class Home {
     },
   ];
 
-  // ✅ travail des autres : recherche + tri
   private readonly search$ = new BehaviorSubject<string>('');
   private readonly sort$ = new BehaviorSubject<SortMode>('rating-desc');
 

@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export type PopupAd = {
-  imageSrc: string; // ex: 'assets/popups/popup1.jpg'
+  imageSrc: string; 
   alt: string;
-  url: string;      // ex: 'https://zoomquilt.org/'
+  url: string;      
 };
 
 @Component({
