@@ -1,3 +1,11 @@
 <app-navbar [title]="title()"></app-navbar>
+
 <router-outlet></router-outlet>
+
 <app-footer></app-footer>
+
+<!-- ✅ POPUP GLOBAL -->
+<app-ad-popup [open]="popupOpen"
+              [ad]="currentPopup"
+              (closed)="closePopup()">
+</app-ad-popup>
