@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { Navbar } from './navbar/navbar';
 import { Footer } from './footer/footer';
 
-// ✅ popup global
 import { AdPopup, PopupAd } from './shared/ad-popup/ad-popup';
 
 @Component({
@@ -16,7 +15,6 @@ import { AdPopup, PopupAd } from './shared/ad-popup/ad-popup';
 export class App {
   protected readonly title = signal('Rillette');
 
-  // ✅ POPUPS (toutes les 20s)
   popups: PopupAd[] = [
     { imageSrc: 'assets/popups/popup1.jpg', alt: 'Pub popup 1', url: 'https://zoomquilt.org/' },
     { imageSrc: 'assets/popups/popup2.jpg', alt: 'Pub popup 2', url: 'https://papertoilet.com/' },
