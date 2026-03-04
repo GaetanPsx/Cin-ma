@@ -1,13 +1,14 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { MoviesApi } from '../services/movies-api';
 import { MovieCard } from './movie-card/movie-card';
-
+import { AdsBanner, Ad } from '../shared/ads-banner/ads-banner';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { register } from 'swiper/element/bundle';
 
-import { AdsBanner, Ad } from '../shared/ads-banner/ads-banner';
+register();
 
 type SortMode = 'rating-desc' | 'rating-asc';
 
@@ -15,6 +16,7 @@ type SortMode = 'rating-desc' | 'rating-asc';
   selector: 'app-home',
   standalone: true,
   imports: [RouterLink, AsyncPipe, MovieCard, AdsBanner],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -23,7 +25,6 @@ export class Home {
 
   movies$ = this.moviesApi.getMovies();
 
-  // ✅ tes pubs (bannières)
   ads: Ad[] = [
     {
       title: 'Revolut',
@@ -54,7 +55,6 @@ export class Home {
     },
   ];
 
-  // ✅ travail des autres : recherche + tri
   private readonly search$ = new BehaviorSubject<string>('');
   private readonly sort$ = new BehaviorSubject<SortMode>('rating-desc');
 
