@@ -1,5 +1,55 @@
-.navbar-logo {
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  background: #2b2b2b;
+  box-shadow: 0 2px 8px rgba(42, 41, 41, 0.3);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar__logo {
   height: 40px;
   width: auto;
   object-fit: contain;
+  border-radius: 6px;
+}
+
+.navbar__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: #e0e0e0;
+  }
+
+  &.active {
+    color: #ffffff;
+    border-bottom: 2px solid #f5a623;
+  }
 }

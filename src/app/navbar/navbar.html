@@ -1,29 +1,24 @@
-<nav class="navbar navbar-light navbar-expand bg-light ps-5 pe-4">
-
-
-  <a class="navbar-brand fw-bold d-flex align-items-center gap-2" routerLink="/">
-    
+<nav class="navbar">
+  <a class="navbar__brand" routerLink="/">
     <img 
       src="/assets/home/logo.png"
       alt="Logo Cinéma Rillette"
-      class="navbar-logo"
+      class="navbar__logo"
     />
-
-    <span>{{ title }}</span>
-
+    <span class="navbar__title">{{ title }}</span>
   </a>
 
-  <a class="nav-item nav-link me-3"
-     routerLink="/"
-     routerLinkActive="active"
-     [routerLinkActiveOptions]="{ exact: true }">
-    Accueil
-  </a>
-
-  <a class="nav-item nav-link"
-     routerLink="/movies"
-     routerLinkActive="active">
-    Gestion de films
-  </a>
-
+  <div class="navbar__links">
+    <a class="navbar__link"
+       routerLink="/"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">
+      Accueil
+    </a>
+    <a class="navbar__link"
+       routerLink="/movies"
+       routerLinkActive="active">
+      Gestion de films
+    </a>
+  </div>
 </nav>
