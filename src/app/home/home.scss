@@ -94,16 +94,19 @@ swiper-container {
 
   .movie-info {
     padding: 1rem;
-    color: white;
+    color: #f4b032;
 
     h3 {
       margin: 0 0 0.5rem 0;
       font-size: 1rem;
     }
 
-    .rating {
-      color: #fef20d;
-      font-weight: bold;
-    }
+  .rating {
+   font-weight: bold;
+   background: linear-gradient(135deg, #f5a623, #f76b1c);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+}
   }
 }
