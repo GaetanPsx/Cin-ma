@@ -1,0 +1,112 @@
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.btn-add {
+  background: linear-gradient(135deg, #f5a623, #f76b1c);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+    color: white;
+  }
+}
+
+.table-wrapper {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  table {
+    margin: 0;
+  }
+
+  thead tr {
+    background: #1a1a2e;
+    color: white;
+
+    th {
+      padding: 1rem 1.2rem;
+      font-weight: 600;
+      border: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: #f8f9ff;
+    }
+
+    td {
+      padding: 0.9rem 1.2rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+  }
+}
+
+.badge-rate {
+  background: linear-gradient(135deg, #f5a623, #f76b1c);
+  color: #ffffff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.synopsis-cell {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  font-size: 0.9rem;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+}
+
+.btn-edit {
+  background: #e8f0fe;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.btn-delete {
+  background: #fde8e8;
+  color: #ef4444;
+}
+.container {
+  padding-bottom: 3rem;
+}
